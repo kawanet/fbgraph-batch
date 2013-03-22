@@ -93,8 +93,9 @@ function progress(info) {
     console.log("#", info);
 }
 
+// output for a file or stdout
 function output(str) {
-    if (program.output) {
+    if (program.output && program.output != '-') {
         progress("output: " + program.output);
         fs.writeFile(program.output, str, function(err) {
             if (err) error(err);
@@ -104,6 +105,7 @@ function output(str) {
     }
 }
 
+// format as a csv
 function to_csv(list) {
     var cols = program.csv.split(/\s*,\s*/);
     progress("Columns: " + cols.join(", ") + " (" + cols.length + ")");
