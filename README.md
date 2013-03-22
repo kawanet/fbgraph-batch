@@ -15,7 +15,7 @@ CLI:
 ```
     $ node fbgraph-batch -h
 
-    Usage: fbgraph-batch [options] <args ...>
+    Usage: batch.cli.js [options] <args ...>
 
     Options:
 
@@ -24,18 +24,19 @@ CLI:
       -j, --json           output as JSON (default)
       -c, --csv <columns>  output CSV with specified columns
       -i, --input <file>   input URL list from file
-      -o, --output <file>  output results to file
+      -o, --output <file>  write results to file
       -t, --token <token>  $FACEBOOK_ACCESS_TOKEN (required)
       -v, --verbose        show verbose messages
 
     $ export FACEBOOK_ACCESS_TOKEN='123456789012345|ABCDEFGHIJKLMNOPQRSTUVWXYZa'
-    $ node fbgraph-batch -c shares,id http://www.yahoo.co.jp/ http://www.yahoo.com/
-    shares,id
-    52058,http://www.yahoo.co.jp
-    1057750,http://www.yahoo.com
 
-    $ node fbgraph-batch -j 4
-    [{"id":"4","name":"Mark Zuckerberg","first_name":"Mark","last_name":"Zuckerberg","link":"http://www.facebook.com/zuck","username":"zuck","gender":"male","locale":"en_US"}]
+    $ node fbgraph-batch -c id,name,link -- 4 731850967
+    id,name,link
+    4,"Mark Zuckerberg",http://www.facebook.com/zuck
+    731850967,"Yusuke Kawasaki",http://www.facebook.com/kawanet
+
+    $ node fbgraph-batch -- http://www.yahoo.co.jp/ http://www.yahoo.com/
+    [{"id":"http://www.yahoo.co.jp","shares":52058,"comments":27},{"id":"http://www.yahoo.com","shares":1057750,"comments":1}]
 ```
 
 JavaScript API:

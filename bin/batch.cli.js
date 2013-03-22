@@ -11,7 +11,7 @@ program.usage('[options] <args ...>');
 program.option('-j, --json', 'output as JSON (default)');
 program.option('-c, --csv <columns>', 'output CSV with specified columns');
 program.option('-i, --input <file>', 'input URL list from file');
-program.option('-o, --output <file>', 'output results to file');
+program.option('-o, --output <file>', 'write results to file');
 program.option('-t, --token <token>', '$FACEBOOK_ACCESS_TOKEN (required)');
 program.option('-v, --verbose', 'show verbose messages');
 program.parse(process.argv);
