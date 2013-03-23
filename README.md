@@ -2,20 +2,18 @@
 
 Facebook Graph API Batch Request Client
 
-## Installation
-
-```sh
-    npm install fbgraph-batch
-```
-
 ## Usage
 
-CLI:
+This package provides both interfaces of CLI and JavaScript API.
+
+## CLI
 
 ```
+    $ npm install -g fbgraph-batch
+
     $ node fbgraph-batch -h
 
-    Usage: batch.cli.js [options] <args ...>
+    Usage: batch.cli.js [options] <ID ...>
 
     Options:
 
@@ -30,41 +28,59 @@ CLI:
 
     $ export FACEBOOK_ACCESS_TOKEN='123456789012345|ABCDEFGHIJKLMNOPQRSTUVWXYZa'
 
-    $ node fbgraph-batch -c id,name,link -- 4 731850967
+    $ fbgraph-batch --csv "id,name,link" 4 731850967
     id,name,link
     4,"Mark Zuckerberg",http://www.facebook.com/zuck
     731850967,"Yusuke Kawasaki",http://www.facebook.com/kawanet
 
-    $ node fbgraph-batch -- http://www.yahoo.co.jp/ http://www.yahoo.com/
+    $ fbgraph-batch --json http://www.yahoo.co.jp/ http://www.yahoo.com/
     [{"id":"http://www.yahoo.co.jp","shares":52058,"comments":27},{"id":"http://www.yahoo.com","shares":1057750,"comments":1}]
 ```
 
-JavaScript API:
+## JavaScript API
+
+### Installation
+
+```sh
+    npm install fbgraph-batch
+```
+
+### Callback Style
 
 ```javascript
     var FBGraphBatch = require("fbgraph-batch");
 
-    var fbbatch = new FBGraphBatch({access_token: "1234....XYZa"});
+    var opts = {access_token: "123456789012345|ABCDEFGHIJKLMNOPQRSTUVWXYZa"};
+    var queries = ['4', '731850967'];
 
-    fbbatch.on("complete", function(list) {
-        console.log(list);
-    });
-
-    fbbatch.on("error", function(err) {
-        console.error(err);
-    });
-
-    fbbatch.on("progress", function(info) {
-        console.log(info);
-    });
-
-    fbbatch.batch(input, function(err, list) {
+    FBGraphBatch(opts).batch(queries, function(err, list) {
         if (err) {
             console.error(err);
         } else {
             console.log(list);
         }
     });
+```
+
+### Event Style
+
+```javascript
+    var FBGraphBatch = require("fbgraph-batch");
+
+    var opts = {access_token: "123456789012345|ABCDEFGHIJKLMNOPQRSTUVWXYZa"};
+    var queries = ['http://www.yahoo.co.jp/', 'http://www.yahoo.com/'];
+
+    new FBGraphBatch(opts)
+    .on("complete", function(list) {
+        console.log(list);
+    })
+    .on("error", function(err) {
+        console.error(err);
+    })
+    .on("progress", function(info) {
+        console.log(info);
+    })
+    .batch(queries);
 ```
 
 ## Author

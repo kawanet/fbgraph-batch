@@ -5,9 +5,10 @@ var fs = require('fs');
 var util = require('util');
 var program = require('commander');
 var pkg = require(__dirname + "/../package.json");
+var colors = require("colors");
 
 program.version(pkg.version);
-program.usage('[options] <args ...>');
+program.usage('[options] <ID ...>');
 program.option('-j, --json', 'output as JSON (default)');
 program.option('-c, --csv <columns>', 'output CSV with specified columns');
 program.option('-i, --input <file>', 'input URL list from file');
@@ -83,14 +84,14 @@ function complete(res) {
 
 // failure handler
 function error(err) {
-    console.error("error:", err);
+    console.error(err.toString().inverse.red);
     process.exit(1);
 }
 
 // progress handler
 function progress(info) {
     if (!program.verbose) return;
-    console.log("#", info);
+    console.log(info.toString().cyan);
 }
 
 // output for a file or stdout

@@ -1,6 +1,6 @@
 {
     "name": "fbgraph-batch",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "Facebook Graph API Batch Request Client",
     "main": "lib/batch.js",
     "bin": {
@@ -9,7 +9,8 @@
     "dependencies": {
         "commander": "*",
         "qs": "*",
-        "request": "*"
+        "request": "*",
+        "colors": "*"
     },
     "devDependencies": {
         "chai": "*",
