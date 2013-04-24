@@ -71,6 +71,9 @@ This package provides both interfaces of CLI and JavaScript API.
     var queries = ['http://www.yahoo.co.jp/', 'http://www.yahoo.com/'];
 
     new FBGraphBatch(opts)
+    .on("item", function(item, id) {
+        console.log(item, id);
+    })
     .on("complete", function(list) {
         console.log(list);
     })

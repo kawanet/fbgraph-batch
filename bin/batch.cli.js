@@ -91,7 +91,7 @@ function error(err) {
 // progress handler
 function progress(info) {
     if (!program.verbose) return;
-    console.log(info.toString().cyan);
+    console.error(info.toString().cyan);
 }
 
 // output for a file or stdout
