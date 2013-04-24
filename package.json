@@ -1,6 +1,6 @@
 {
     "name": "fbgraph-batch",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "description": "Facebook Graph API Batch Request Client",
     "main": "lib/batch.js",
     "bin": {
