@@ -11,9 +11,9 @@ This package provides both interfaces of CLI and JavaScript API.
 ```
     $ npm install -g fbgraph-batch
 
-    $ node fbgraph-batch -h
+    $ fbgraph-batch -h
 
-    Usage: batch.cli.js [options] <ID ...>
+    Usage: fbgraph-batch [options] <ID ...>
 
     Options:
 
