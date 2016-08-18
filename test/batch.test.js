@@ -25,8 +25,9 @@ describe('FBGraphBatch', function() {
                 debug("complete", res);
                 expect(res).to.not.be.empty;
                 expect(res[0]).to.have.property('id', ok_id);
-                expect(res[0]).to.have.property('shares').and.be.a.number;
-                expect(res[0]).to.have.property('comments').and.be.a.number;
+                // response format changed
+                expect(res[0].share).to.have.property('share_count').and.be.a.number;
+                expect(res[0].share).to.have.property('comment_count').and.be.a.number;
                 setTimeout(done, wait);
             });
             graph.batch([ok_id]);
