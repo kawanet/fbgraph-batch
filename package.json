@@ -1,23 +1,23 @@
 {
-    "name": "fbgraph-batch",
-    "version": "0.0.10",
-    "description": "Facebook Graph API Batch Request Client",
-    "main": "lib/batch.js",
-    "bin": {
-        "fbgraph-batch": "bin/batch.cli.js"
-    },
-    "dependencies": {
-        "commander": "*",
-        "qs": "*",
-        "request": "*",
-        "colors": "*"
-    },
-    "devDependencies": {
-        "chai": "*",
-        "grunt": "*",
-        "grunt-mocha-test": "*"
-    },
-    "repository": "git://github.com/kawanet/fbgraph-batch.git",
-    "author": "@kawanet",
-    "license": "MIT"
+  "name": "fbgraph-batch",
+  "description": "Facebook Graph API Batch Request Client",
+  "version": "0.0.10",
+  "author": "@kawanet",
+  "bin": {
+    "fbgraph-batch": "bin/batch.cli.js"
+  },
+  "dependencies": {
+    "colors": "*",
+    "commander": "*",
+    "qs": "*",
+    "request": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "grunt": "*",
+    "grunt-mocha-test": "*"
+  },
+  "license": "MIT",
+  "main": "lib/batch.js",
+  "repository": "git://github.com/kawanet/fbgraph-batch.git"
 }
